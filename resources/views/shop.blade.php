@@ -7,6 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
     <meta name="author" content="">
+    <link rel="icon" href="{{asset('img/Favicon_Amalita.jpg')}}">
 
     <title>Amalita Jewls</title>
 
@@ -27,59 +28,14 @@
 
 <body id="top-page">
 
-<!-- Navigation -->
-<nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark fixed-top">
-    <div class="container">
-        <a class="navbar-brand" href="index.html"></a>
-        <img id="logo" src={{"/img/Logo_amalita_white.png"}}  alt="logo"/>
-        <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse"
-                data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false"
-                aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarResponsive">
-            <ul class="navbar-nav ml-auto">
-                <li class="nav-item">
-                    <a class="nav-link" href="#notre_boutique">Notre boutique</a>
-                </li>
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownPortfolio" data-toggle="dropdown"
-                       aria-haspopup="true" aria-expanded="false">
-                        Bijoux
-                    </a>
-                    <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownPortfolio">
-                        <a class="dropdown-item" href="#">Boucles d'oreilles</a>
-                        <a class="dropdown-item" href="#">Colliers</a>
-                        <a class="dropdown-item" href="#">Bracelets</a>
-                        <a class="dropdown-item" href="#">Bijoux de cheveux</a>
-                        <a class="dropdown-item" href="#">Petits prix</a>
-                    </div>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="Newsletter.html">Newsletter</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#"><i class="fa fa-shopping-cart"></i> Panier</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#"><i class="fa fas fa-user"></i> Mon compte</a>
-                </li>
-            </ul>
-            <!-- Search form -->
-            <form class="form-inline">
-                <input class="form-control" type="text" placeholder="Search" aria-label="Search">
-            </form>
-        </div>
-    </div>
-</nav>
-
-
+@include('layout.nav')
+@include('shop.messages_flash')
 @yield('content')
 
 <!-- Footer -->
 <footer class="page-footer font-small unique-color-dark">
 
-    <div style="background-color: #6351ce;">
+    <div style="background-color:#137359;">
         <div class="container">
 
             <!-- Grid row-->

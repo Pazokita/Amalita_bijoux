@@ -9,33 +9,37 @@ use Illuminate\Http\Request;
 
 class MainController extends Controller
 {
-    //
+    //Afficher la page d'accueil du shop
     public function index()
     {
         // SELECT * FROM Produits;
+
         $produits = Produit::all();
-//        dd($produits);
-        return view('shop.index', compact('produits'));
+      //  $categories = Categorie::where('is_online', 1);
+        //dd($produits);
+        return view('shop.index', ['produits'=>$produits]);
     }
 
 
-    // Voir les produits d'une catégorie
-    public function viewByCategorie(Request $request)
+    // Voir les catégories is_online == 1
+    public function vueParCategorie(Request $request)
     {
-
-        $cat = Categorie::find($request->id);
-        $produits = $cat->produits;
-        return view('shop.categorie', ['produits' => $produits, 'cat' => $cat]);
+      $categories = Categorie::find($request->id);
+      $produits = Produit::where('categorie_id', $request->id)->get();
+      //dd($categories->categorie_id);
+       // dd($request);
+        return view('shop.categorie', ['produits'=>$produits, 'categories'=>$categories]);
     }
 
     //voir le détail du produit
     public function produit(Request $request)
     {
 
-        $p = Produit::find($request->id);
-
-//        dd($p);
-        return view('shop.produit', ["p" => $p]);
-
+        $produits = Produit::find($request->id);
+      //  dd($request);
+        $categories = Categorie::where('is_online', 1);
+//        dd($produits);
+        return view('shop.produit', ['categories'=>$categories, 'produits'=>$produits]);
     }
+
 }

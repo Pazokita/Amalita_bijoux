@@ -13,6 +13,9 @@
     <!-- Bootstrap core CSS -->
     <link href={{asset('vendor/bootstrap/css/bootstrap.min.css')}} rel="stylesheet">
 
+    <!--icon du site-->
+    <link rel="icon" href="{{asset('img/Favicon_Amalita.jpg')}}">
+
     <!-- Custom styles -->
     <link href={{asset("css/amalia-jews.css")}} rel="stylesheet">
 
@@ -26,103 +29,16 @@
 </head>
 
 <body id="top-page">
-
-<!-- Navigation -->
-<nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark fixed-top">
-    <div class="container">
-        <a class="navbar-brand" href="#top-page"></a>
-        <img id="logo" src={{"/img/Logo_amalita_white.png"}}  alt="logo"/>
-        <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse"
-                data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false"
-                aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarResponsive">
-            <ul class="navbar-nav ml-auto">
-                <li class="nav-item">
-                    <a class="nav-link" href="#notre_boutique">Notre boutique</a>
-                </li>
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownPortfolio" data-toggle="dropdown"
-                       aria-haspopup="true" aria-expanded="false">
-                        Bijoux
-                    </a>
-                    <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownPortfolio">
-                        <a class="dropdown-item" href="#">Boucles d'oreilles</a>
-                        <a class="dropdown-item" href="#">Colliers</a>
-                        <a class="dropdown-item" href="#">Bracelets</a>
-                        <a class="dropdown-item" href="#">Bijoux de cheveux</a>
-                        <a class="dropdown-item" href="#">Petits prix</a>
-                    </div>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="Newsletter.html">Newsletter</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#"><i class="fa fa-shopping-cart"></i> Panier</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#"><i class="fa fas fa-user"></i> Mon compte</a>
-                </li>
-            </ul>
-            <!-- Search form -->
-            <form class="form-inline">
-                <input class="form-control" type="text" placeholder="Search" aria-label="Search">
-            </form>
-        </div>
-    </div>
-</nav>
-
-<header>
-    <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
-        <ol class="carousel-indicators">
-            <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
-            <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
-            <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
-        </ol>
-        <div class="carousel-inner" role="listbox">
-            <!-- Slide One - Set the background image for this slide in the line below -->
-            <div class="carousel-item active">
-                <img class="d-block w-100" src="img/slide1.jpg" alt="First slide">
-                <div class="carousel-caption d-none d-md-block">
-                    <h3>Amalita's boutique</h3>
-                    <p>Laissez-vous tentez!</p>
-                </div>
-            </div>
-            <!-- Slide Two - Set the background image for this slide in the line below -->
-            <div class="carousel-item">
-                <img src="img/slide2.jpg" alt="Second slide">
-                <div class="carousel-caption d-none d-md-block">
-                    <h3>Amalita's boutique</h3>
-                    <p>Laissez-vous tentez!</p>
-                </div>
-            </div>
-            <!-- Slide Three - Set the background image for this slide in the line below -->
-            <div class="carousel-item">
-                <img src="img/slide3.jpg" alt="Third slide">
-                <div class="carousel-caption d-none d-md-block">
-                    <h3>Amalita's boutique</h3>
-                    <p>Laissez-vous tentez!</p>
-                </div>
-            </div>
-        </div>
-        <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
-            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-            <span class="sr-only">Previous</span>
-        </a>
-        <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
-            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-            <span class="sr-only">Next</span>
-        </a>
-    </div>
-</header>
-
+@include('layout.nav')
+@include('layout.header')
+@include('shop.messages_flash')
 @yield('content')
+
 
 <!-- Footer -->
 <footer class="page-footer font-small unique-color-dark">
 
-    <div style="background-color: #6351ce;">
+    <div style="background-color:#137359;">
         <div class="container">
 
             <!-- Grid row-->

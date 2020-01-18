@@ -15,13 +15,28 @@ body {
 
 a, button {
     transition: all 0.3s ease;
+    color: black;
 }
 
 a:hover,
 a:focus {
     text-decoration: none;
     outline: none;
+    color:#ffc107;
 }
+
+.btn-primary {
+    color: #fff;
+    background-color: #137359;
+    border-color: #137359;
+}
+
+.btn-primary:hover {
+    color: #fff;
+    background-color: #9ACD32;
+    border-color: #9ACD32;
+}
+
 
 p:last-child {
     margin-bottom: 0;
@@ -31,7 +46,9 @@ p:last-child {
     width: 7rem;
     height: auto;
 }
-
+.alert{
+    margin-top: 0rem;
+}
 
 .carousel-item {
     height: 65vh;
@@ -64,15 +81,15 @@ h2 {
 }
 
 footer {
-    background: #69c6ba;
-    padding-top: 40px;
-    padding-bottom: 40px;
+    background: white;
+    padding-top: 0rem;
+    padding-bottom: 0px;
     text-align: center;
     font-size: 0.8rem;
 }
 
 footer a {
-    color: #fff;
+    color: black;
 }
 
 footer a:hover {
@@ -80,16 +97,17 @@ footer a:hover {
 }
 
 footer p {
-    color: white;
+    color: black;
 }
 
+
 .tm-footer-text-highlight {
-    color: white;
+    color: black;
     font-weight: 600;
 }
 
 .tm-footer-text-highlight:hover {
-    color: #c66995;
+    color: #137359;
 }
 
 .tm-contact-form {
@@ -238,8 +256,42 @@ footer p {
         float: right;
     }
 
+
 }
 
+#main {
+    margin-bottom: 4rem!important;
+    margin-top: 2rem;
+}
 
+#formulaire_adresse{
+    margin-bottom: 4rem!important;
+    margin-top: 2rem;
+}
 
+#bouton_panier {
+    background-color: #ffc107;
+    color: black
+}
 
+.breadcrumb {
+    position: relative;
+    background-color: #137359;
+    width: auto!important;
+    position: relative;
+
+}
+
+.card-header{
+    background-color: #ffc107;
+    color: black;
+}
+
+#bouton_payer{
+    background-color: #ffc107;
+    color: black;
+}
+
+.panier{
+    background-color: #137359;
+}

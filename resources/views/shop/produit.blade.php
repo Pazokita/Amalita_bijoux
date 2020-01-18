@@ -1,38 +1,57 @@
 @extends('shop')
 @section('content')
+    <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item">
+                <a href="{{route('homepage')}}">Accueil</a>
+            </li>
+            <li class="breadcrumb-item active" aria-current="page">
+                <a href="{{route('voir_produit', ['id'=>$produits->id])}}">
+                    {{$produits->nom}}</a>
+            </li>
+        </ol>
+    </nav>
     <!-- Page Content -->
     <div class="container">
 
-        <!-- Page Heading/Breadcrumbs -->
-        <h1 class="mt-4 mb-3">Laissez vous tenter !
-
-        </h1>
 {{--{{dd($p)}}--}}
-        <ol class="breadcrumb">
-            <li class="breadcrumb-item">
-                <a href="index.html">Accueil</a>
-            </li>
-            <li class="breadcrumb-item active">Collier</li>
-            <li class="breadcrumb-item ">Nom</li>
-        </ol>
 
         <!-- Produits -->
         <div class="row">
 
             <div class="col-md-7">
                 <a href="#">
-                    <img class="img-fluid rounded mb-3 mb-md-0" src="{{asset('produits/'.$p->photo_principale)}}" alt="">
+                    <img class="img-fluid rounded mb-3 mb-md-0" src="{{asset('storage/upload/'.$produits->photo_principale)}}" alt="">
                 </a>
             </div>
             <div class="col-md-5">
-                <h3>{{$p->nom}}</h3>
-                <p>{{$p->description}}</p>
+                <h3>{{$produits->nom}}</h3>
+                <p>{{$produits->description}}</p>
                 <div class="d-flex justify-content-between align-items-center">
-                    <span class="price">{{$p->prix_ht}} €</span>
+                    <span class="price">{{$produits->prixTTC()}} €</span>
                 </div>
-                <p>
-                    <a href="#" class="btn btn-cart"><i class="fas fa-shopping-cart"></i> Ajouter au Panier</a>
-                </p>
+
+                <hr>
+                <form action="{{route('add_product_cart', ['id'=>$produits->id])}}" method="post" id="panier_add">
+                    @csrf
+
+                    <p>
+
+                            {{-- s'il n'y a pas de produit on ne peut pas ajouter des produits seulement pour produit sans taille--}}
+
+                                <label for="qte">Quantité</label>
+                                {{--autocomplete pour que les champs ne se remplissement pas automatiquement --}}
+                                <input id="qte" type="number" max="{{$produits->qte}}" min=1 name="qte"
+                                       autocomplete="off"
+                                       value="1" class="form-control">
+
+                    </p>
+                </form>
+                <hr>
+                <button type="submit" form="panier_add" id="bouton_panier" class="btn btn-cart my-2 btn-block">
+                    <i class="fas fa-shopping-cart">
+                    </i> Ajouter au Panier
+                </button>
             </div>
 
         </div>
@@ -45,49 +64,24 @@
         <div class="album py-5 bg-light">
             <div class="container">
                 <div class="row">
-                    <h3>Vous aimerez aussi :</h3>
+                    <h3># Vous aimerez aussi :</h3>
                 </div>
                 <div class="row">
+                    @foreach($produits->recommandations as $recommandation)
                     <div class="col-md-4">
                         <div class="card mb-4 box-shadow">
-                            <img src="http://placehold.it/700x300" class="card-img-top img-fluid" alt="Responsive image">
+                            <img src="{{asset('storage/upload/'.$recommandation->photo_principale)}}" class="card-img-top img-fluid" alt="Responsive image">
 
                             <div class="card-body">
                                 <div class="d-flex justify-content-end">
                                     <div class="btn-group">
-                                        <a href="#" class="btn btn-sm btn-outline-secondary"><i class="fas fa-eye"></i></a>
+                                        <a href="{{route('voir_produit',['id'=>$recommandation->id])}}"class="btn btn-sm btn-outline-secondary"><i class="fas fa-eye"></i></a>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <div class="col-md-4">
-                        <div class="card mb-4 box-shadow">
-                            <img src="http://placehold.it/700x300" class="card-img-top img-fluid" alt="Responsive image">
-
-                            <div class="card-body">
-                                <div class="d-flex justify-content-end">
-                                    <div class="btn-group">
-                                        <a href="#" class="btn btn-sm btn-outline-secondary"><i class="fas fa-eye"></i></a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-4">
-                        <div class="card mb-4 box-shadow">
-                            <img src="http://placehold.it/700x300" class="card-img-top img-fluid" alt="Responsive image">
-
-                            <div class="card-body">
-                                <div class="d-flex justify-content-end">
-                                    <div class="btn-group">
-                                        <a href="#" class="btn btn-sm btn-outline-secondary"><i class="fas fa-eye"></i></a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
+                    @endforeach
 
                 </div>
             </div>
